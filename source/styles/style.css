@@ -3,7 +3,8 @@ body{
     color: white;
 }
 
-.welcome{
-    border: 3px solid red;
-    text-align: center;
+#button{
+    color:black;
+    background: green;
+    border: none;
 }
