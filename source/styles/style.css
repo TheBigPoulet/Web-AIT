@@ -5,5 +5,5 @@ body{
 
 .welcome{
     border: 3px solid red;
-    margin: 5%;
+    text-align: center;
 }
