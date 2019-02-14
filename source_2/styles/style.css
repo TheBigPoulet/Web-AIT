@@ -1,14 +1,23 @@
 body{
     background: black;
+}
 
+#val{
+    border: 1px solid white;
+    height: 20px;
+    width: 60px;
+    background: white;
+    position: relative;
+    left: 0;
+    color: black;
+    text-align: right;
 }
 
 #square{
-    border : 1px solid red;
+    border: 1px solid red;
     height: 60px;
     width: 60px;
     background: red;
     position: relative;
-    margin: auto;
     text-align: center;
 }

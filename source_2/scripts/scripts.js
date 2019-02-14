@@ -1,55 +1,28 @@
 var shift = 0;
-var state_side = 0;
-var state_return = 0;
-var limite_right = 100;
-var limite_left = -100;
-var NB_return = 0;
 var interval = 10; //ms
-var step = 1; //px
 var mySquare;
+var val;
+var ref=1000;
+var E = [0,0]; //[n-2,n-1]
+var S = [0,0]; //[n-2,n-1]
+Kp=5;
 
-function init(){
+function init() {
     mySquare = document.getElementById("square");
+    val = document.getElementById("val");
 }
 
 function move_square() {
-    if (NB_return != 3) {
-        if (state_side == 0) {
-            if (state_return == 0) {
-                shift = shift + step;
-                if (shift == limite_right) {
-                    state_return = 1;
-                }
-            }
-            else {
-                shift = shift - step;
-                if (shift == 0) {
-                    state_return = 0;
-                    state_side = 1;
-                }
-            }
-        }
-        else if (state_side == 1) {
-            if (state_return == 0) {
-                shift = shift - step;
-                if (shift == limite_left) {
-                    state_return = 1;
-                }
-            }
-            else {
-                shift = shift + step;
-                if (shift == 0) {
-                    state_return = 0;
-                    state_side = 0;
-                    NB_return++;
-                    mySquare.innerHTML = NB_return;
-                }
-            }
-        }
-        mySquare.style.left = shift + "px";
-    }
-
+    val.style.width=ref+"px";
+    val.innerHTML="ref = "+ref+" Kp = "+Kp;
+    shift = 0.002586*E[1]+0.0016858*E[0]+1.5113*S[1]-0.5487610*S[0];
+    E[0]=E[1];
+    command=(ref-shift)*Kp;
+    E[1]=command
+    S[0]=S[1];
+    S[1]=shift;
+    mySquare.style.left = shift + "px";
+    mySquare.innerHTML=shift;
 }
-
 
 setInterval("move_square()", interval);
