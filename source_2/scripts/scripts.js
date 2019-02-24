@@ -2,7 +2,7 @@ var shift = 0;
 var interval = 10; //ms
 var mySquare;
 var val;
-var ref = 1000;
+var ref;
 var E = [0, 0]; //[n-2,n-1]
 var S = [0, 0]; //[n-2,n-1]
 var Kp = 10;
@@ -18,14 +18,15 @@ var D = 0;
 function init() {
     mySquare = document.getElementById("square");
     val = document.getElementById("val");
+    ref = document.getElementById("ref");
 }
 
 function move_square() {
-    val.style.width = (ref + 60) + "px";
-    val.innerHTML = "ref = " + ref + " Kp = " + Kp;
+    val.style.width = ref.value + "px";
+    val.innerHTML = "ref = " + ref.value + " Kp = " + Kp;
     shift = 0.002586 * E[1] + 0.0016858 * E[0] + 1.5113 * S[1] - 0.5487610 * S[0];
     E[0] = E[1];
-    Erreur = ref - shift;
+    Erreur = ref.value - shift;
     Total_Erreur += Erreur;
     P = Erreur * Kp
     I = Total_Erreur * Ki;
@@ -35,8 +36,8 @@ function move_square() {
     E[1] = command
     S[0] = S[1];
     S[1] = shift;
-    mySquare.style.left = shift + "px";
-    mySquare.innerHTML = shift;
+    mySquare.style.left = (shift-20) + "px";
+
 }
 
 setInterval("move_square()", interval);

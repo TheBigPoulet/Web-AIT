@@ -5,7 +5,7 @@ body{
 #val{
     border: 1px solid white;
     height: 20px;
-    width: 60px;
+    width: 1000px;
     background: white;
     position: relative;
     left: 0;
@@ -16,8 +16,12 @@ body{
 #square{
     border: 1px solid red;
     height: 60px;
-    width: 60px;
+    width: 20px;
     background: red;
     position: relative;
     text-align: center;
+}
+
+#ref{
+    width: 1000px;
 }
